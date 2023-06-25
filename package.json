@@ -1,0 +1,17 @@
+{
+  "name": "Diploma_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-gyp": "^9.4.0",
+    "node-sass": "^8.0.0",
+    "parcel-bundler": "^1.12.5"
+  }
+}
