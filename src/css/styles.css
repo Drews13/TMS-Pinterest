@@ -2,4 +2,151 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}/*# sourceMappingURL=styles.css.map */
+  outline: none;
+}
+
+@font-face {
+  font-family: "Commisioner";
+  src: url(../public/fonts/Commissioner-Medium.ttf);
+}
+.wrapper {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  margin-top: 20px;
+}
+.header__logo {
+  cursor: pointer;
+}
+.header__logo_item {
+  max-width: 180px;
+  height: 100%;
+  transition: 0.5s;
+}
+@media (max-width: 770px) {
+  .header__logo_item {
+    width: 120px;
+    height: 40px;
+  }
+}
+@media (max-width: 590px) {
+  .header__logo_item {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 450px) {
+  .header__logo_item {
+    width: 40px;
+    height: 40px;
+  }
+}
+.header__logo_item:hover {
+  transform: scale(1.05);
+}
+.header__search {
+  flex: 1 1 auto;
+  margin: 0 25px;
+}
+.header__search_item {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border: rgb(190, 190, 190) 2px solid;
+  padding-left: 20px;
+  font-family: "Commisioner";
+  font-weight: 700;
+  font-size: 20px;
+}
+.header__search_item::-moz-placeholder {
+  font-family: "Commisioner";
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+.header__search_item::placeholder {
+  font-family: "Commisioner";
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+.header__dropdown_item {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(230, 0, 36);
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+@media (max-width: 770px) {
+  .header__dropdown_item {
+    max-width: 120px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 590px) {
+  .header__dropdown_item {
+    width: 60px;
+    height: 100%;
+    max-height: 60px;
+    border-radius: 50%;
+    background-color: rgb(189, 8, 28);
+  }
+}
+@media (max-width: 450px) {
+  .header__dropdown_item {
+    width: 40px;
+    height: 40px;
+  }
+}
+.header__dropdown_item:hover {
+  transform: scale(1.05);
+  background-color: rgb(189, 8, 28);
+}
+@media (max-width: 590px) {
+  .header__dropdown_item span {
+    display: none;
+  }
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  max-width: 1370px;
+  margin: 30px auto;
+}
+
+.card {
+  border: 2px solid rgb(190, 190, 190);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card__pic {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.card__avatar {
+  width: 30px;
+  height: 30px;
+}
+.card__text {
+  font-family: "Commisioner";
+  font-weight: 500;
+}
