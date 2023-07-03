@@ -5,10 +5,6 @@
   outline: none;
 }
 
-@font-face {
-  font-family: "Commisioner";
-  src: url(../public/fonts/Commissioner-Medium.ttf);
-}
 .wrapper {
   padding: 0 15px;
   margin: 0 auto;
@@ -21,37 +17,37 @@
 .header__logo {
   cursor: pointer;
 }
-.header__logo_item {
+.header__logo-item {
   max-width: 180px;
   height: 100%;
   transition: 0.5s;
 }
 @media (max-width: 770px) {
-  .header__logo_item {
+  .header__logo-item {
     width: 120px;
     height: 40px;
   }
 }
 @media (max-width: 590px) {
-  .header__logo_item {
+  .header__logo-item {
     width: 60px;
     height: 60px;
   }
 }
 @media (max-width: 450px) {
-  .header__logo_item {
+  .header__logo-item {
     width: 40px;
     height: 40px;
   }
 }
-.header__logo_item:hover {
+.header__logo-item:hover {
   transform: scale(1.05);
 }
 .header__search {
   flex: 1 1 auto;
   margin: 0 25px;
 }
-.header__search_item {
+.header__search-item {
   height: 100%;
   width: 100%;
   border-radius: 20px;
@@ -61,19 +57,19 @@
   font-weight: 700;
   font-size: 20px;
 }
-.header__search_item::-moz-placeholder {
+.header__search-item::-moz-placeholder {
   font-family: "Commisioner";
   font-weight: 500;
   font-size: 18px;
   text-align: center;
 }
-.header__search_item::placeholder {
+.header__search-item::placeholder {
   font-family: "Commisioner";
   font-weight: 500;
   font-size: 18px;
   text-align: center;
 }
-.header__dropdown_item {
+.header__dropdown-item {
   font-family: "Commisioner";
   font-weight: 500;
   padding: 10px;
@@ -88,13 +84,13 @@
   transition: 0.5s;
 }
 @media (max-width: 770px) {
-  .header__dropdown_item {
+  .header__dropdown-item {
     max-width: 120px;
     font-size: 12px;
   }
 }
 @media (max-width: 590px) {
-  .header__dropdown_item {
+  .header__dropdown-item {
     width: 60px;
     height: 100%;
     max-height: 60px;
@@ -103,17 +99,17 @@
   }
 }
 @media (max-width: 450px) {
-  .header__dropdown_item {
+  .header__dropdown-item {
     width: 40px;
     height: 40px;
   }
 }
-.header__dropdown_item:hover {
+.header__dropdown-item:hover {
   transform: scale(1.05);
   background-color: rgb(189, 8, 28);
 }
 @media (max-width: 590px) {
-  .header__dropdown_item span {
+  .header__dropdown-item span {
     display: none;
   }
 }
@@ -149,4 +145,9 @@
 .card__text {
   font-family: "Commisioner";
   font-weight: 500;
+}
+
+@font-face {
+  font-family: "Commisioner";
+  src: url(../public/fonts/Commissioner-Medium.ttf);
 }
