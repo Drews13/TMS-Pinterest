@@ -147,7 +147,153 @@
   font-weight: 500;
 }
 
+.button {
+  margin-top: 20px;
+  padding: 5px;
+  width: 70px;
+  border-radius: 10px;
+  background-color: rgb(190, 190, 190);
+  cursor: pointer;
+  font-size: 16px;
+}
+.button:hover {
+  background-color: bisque;
+}
+.button:active {
+  background-color: rgb(230, 0, 36);
+  color: white;
+}
+
+.board__selection-list {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  height: 100%;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  max-width: 320px;
+  line-height: 40px;
+  max-width: 200px;
+}
+@media (max-width: 770px) {
+  .board__selection-list {
+    width: 160px;
+    height: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .board__selection-list {
+    width: 100px;
+    height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .board__selection-list {
+    width: 100px;
+    height: 100%;
+  }
+}
+.board__active {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  height: 100%;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  max-width: 320px;
+  line-height: 40px;
+  max-width: 250px;
+}
+@media (max-width: 770px) {
+  .board__active {
+    width: 200px;
+    height: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .board__active {
+    width: 160px;
+    height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .board__active {
+    width: 160px;
+    height: 100%;
+  }
+}
+.board__report {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  height: 100%;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  max-width: 320px;
+  line-height: 40px;
+  max-width: 320px;
+}
+@media (max-width: 770px) {
+  .board__report {
+    width: 280px;
+    height: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .board__report {
+    width: 230px;
+    height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .board__report {
+    width: 200px;
+    height: 100%;
+  }
+}
+.board__add {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  height: 100%;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  max-width: 320px;
+  line-height: 40px;
+  max-width: 250px;
+}
+@media (max-width: 770px) {
+  .board__add {
+    width: 200px;
+    height: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .board__add {
+    width: 160px;
+    height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .board__add {
+    width: 160px;
+    height: 100%;
+  }
+}
+
 @font-face {
   font-family: "Commisioner";
   src: url(../public/fonts/Commissioner-Medium.ttf);
-}
+}/*# sourceMappingURL=styles.css.map */
