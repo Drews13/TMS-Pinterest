@@ -1,33 +1,75 @@
 .grid {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 20px;
   max-width: 1370px;
   margin: 30px auto;
+  margin-bottom: 50px;
 }
 .card {
   border: 2px solid $grey;
   border-radius: 15px;
   overflow: hidden;
   &__pic {
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;	
   }
 
-  &__description {
+  &__author {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
     padding: 10px;
+  }
+  &__description {
+    text-align: center;
+    padding: 20px; 
+  }
+
+  &__text { 
+    font-family: "Commisioner";
+    font-weight: 500;
+    font-size: 18px;
   }
 
   &__avatar {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 
-  &__text {
+  &__name {
+    font-family: "Commisioner";
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+
+.button-container {
+  margin: auto;
+  margin-bottom: 30px;
+  width: 50%;
+}
+
+.grid-button {
     font-family: "Commisioner";
     font-weight: 500;
-  }
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: $primary;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.grid-button:hover {
+  transform: scale(1.05);
+  background-color: $primary-hover;
 }
