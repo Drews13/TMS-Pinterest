@@ -1,29 +1,35 @@
-const LIMIT = 12;
-let from = LIMIT;
-let url = "https://64986c8a9543ce0f49e2064d.mockapi.io/picture";
+import { LIMIT } from "./constants.js";
+
 let data = [];
+let i = 0;
+let from = 0;
+let to;
 let grid = document.querySelector(".grid");
 let wrapper = document.querySelector(".wrapper");
 let logo = document.querySelector(".header__logo");
 
 async function getPictures() {
-  try {
-    const response = await fetch(url);
-    const loadedData = await response.json();
-    data = loadedData;
-    renderPictures(data.slice(0, LIMIT));
-  } catch (error) {
-    console.error();
-  }
+  i++;
+  let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
+  url.searchParams.append("page", i);
+  url.searchParams.append("limit", LIMIT);
+  await fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
+      data = data.concat(res);
+    })
+    .catch((err) => console.log(err.message));
+  renderPictures(data.slice(from, to));
+  console.log(data.slice(from, to));
 }
 
 function renderPictures(data) {
-  let dataArr = data.map(function (card) {
-    return createCards(card);
+  data.forEach(function (card) {
+    createCard(card);
   });
 }
 
-function createCards(card) {
+function createCard(card) {
   let gridItem = document.createElement("div");
   gridItem.classList.add("grid__item");
   gridItem.setAttribute("id", `${card.id}`);
@@ -75,10 +81,9 @@ let showMoreBtn = document.createElement("button");
 showMoreBtn.classList.add("grid-button");
 showMoreBtn.innerText = "показать еще";
 
-
 showMoreBtn.onclick = () => {
-  const to = from + LIMIT;
-  renderPictures(data.slice(from, to));
+  let to = from + LIMIT;
+  getPictures();
   from = to;
 };
 
