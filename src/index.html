@@ -39,6 +39,12 @@
             <span>Выбрать доску</span>
             &#9660
           </button>
+          <div class="board__selection-list">
+            <div class="choose">Выберите доску:</div>
+            <div class="click">Доска 1</div>
+            <div class="click">Доска 2</div>
+            <div class="click">Доска 3</div>
+         </div>
         </div>
       </section>
       <section class="grid">
@@ -247,38 +253,51 @@
           </div>
         </div>
       </section>
-      <section class="modal__windows">
-         <div class="board__selection-list">
-          <div class="wrapper">
-            <div class="boards">Выберите доску:</div>
-            <div class="boards">Доска 1</div>
-            <div class="boards">Доска 2</div>
-            <div class="boards">Доска 3</div>
-            <div class="boards">Доска 4</div>
+        
+
+
+        <div class="board__info">
+          <img 
+            src="./public/img/example.jpg" 
+            alt="avatar"
+            class="board__info-pic"
+          />
+        <div class="board__info-description">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <p>aut doloribus quia dicta blanditiis et soluta</p>
+            <p> odio, labore numquam doloremque quos laborum</p>
+            <p> animi temporibus consequuntur quo iusto expedita?</p>
           </div>
-         </div>
-        <div class="board__active">
-           <div class="add">Добавить на доску</div>
-           <div class="report">Пожаловаться</div>
+          <img 
+            src="./public/img/user-avatar.png" 
+            alt="avatar"
+            class="board__info-avatar"
+          />
+          <div class="board__info-name">Lorem ipsum dolor sit.</div>
         </div>
+
         <div class="board__report">
-          <label><input type="checkbox"class="click">Насилие<br></label>
-          <label><input type="checkbox"class="click">Расовая дискриминация<br></label>
-          <label><input type="checkbox"class="click">Контент для взрослых<br></label>
-          <label><input type="checkbox"class="click">Жестокое обращение с животными<br></label>
-          <label><input type="checkbox"class="click">Дезинформация<br></label>
-          <label><input type="checkbox"class="click">Мошенничество<br></label>
-          <label><input type="checkbox"class="click">Контрафакция<br></label>
-          <button type="button" class="cancel button">cancel</button>
-          <button type="button" class="send button">send</button>  
+          <input type="checkbox"class="checkbox">Насилие<br>
+          <input type="checkbox"class="checkbox">Расовая дискриминация<br>
+          <input type="checkbox"class="checkbox">Контент для взрослых<br>
+          <input type="checkbox"class="checkbox">Жестокое обращение с животными<br>
+          <input type="checkbox"class="checkbox">Дезинформация<br>
+          <input type="checkbox"class="checkbox">Мошенничество<br>
+          <input type="checkbox"class="checkbox">Контрафакция<br>
+          <button type="button" class="cancel_button">cancel</button>
+          <button type="button" class="send_button">send</button>  
         </div>
-        <div class="board__add">
+        <div class="board__add-desk">
            <div>Добавить на доску:</div>
-           <div>Доска 1</div>
-           <div>Доска 2</div>
-           <div>Доска 3</div>
-         </div> 
-      </section>
-    </div>
+           <div class="click">Доска 1</div>
+           <div class="click">Доска 2</div>
+           <div class="click">Доска 3</div>
+        </div> 
+        <div class="board__active">
+          <div class="open">Открыть</div>
+          <div class="add">Добавить на доску</div>
+          <div class="report">Пожаловаться</div>
+        </div>
+     </div>
   </body>
 </html>
