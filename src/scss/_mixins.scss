@@ -1,0 +1,11 @@
+@mixin modal-primary {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  background-color: $primary;
+  border: $grey 2px solid;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+}

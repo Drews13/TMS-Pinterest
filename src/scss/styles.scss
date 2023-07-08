@@ -1,7 +1,9 @@
 @import "./normalize";
+@import "./mixins";
 @import "./colors";
 @import "./header";
 @import "./grid";
+@import "./_modalWindows";
 @font-face {
   font-family: "Commisioner";
   src: url(../public/fonts/Commissioner-Medium.ttf);
