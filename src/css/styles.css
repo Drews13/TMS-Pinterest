@@ -303,11 +303,7 @@
   color: white;
 }
 
-.board__add-desk {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.add-to-desk-modal {
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
@@ -317,25 +313,11 @@
   color: white;
   text-align: center;
   line-height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 250px;
-}
-@media (max-width: 770px) {
-  .board__add-desk {
-    width: 200px;
-    height: 100%;
-  }
-}
-@media (max-width: 590px) {
-  .board__add-desk {
-    width: 160px;
-    height: 100%;
-  }
-}
-@media (max-width: 450px) {
-  .board__add-desk {
-    width: 160px;
-    height: 100%;
-  }
 }
 
 @font-face {
