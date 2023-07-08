@@ -32,6 +32,7 @@
             type="text"
             placeholder="поиск..."
             class="header__search-item"
+            id="search"
           />
         </div>
         <div class="header__dropdown">
@@ -39,11 +40,11 @@
             <span>Выбрать доску</span>
             &#9660
           </button>
-          <div class="board__selection-list">
-            <div class="choose">Выберите доску:</div>
-            <div class="click">Доска 1</div>
-            <div class="click">Доска 2</div>
-            <div class="click">Доска 3</div>
+          <div class="header__dropdown-menu" hidden>
+            <div class="modal-text">Выберите доску:</div>
+            <div class="modal-click-item">Доска 1</div>
+            <div class="modal-click-item">Доска 2</div>
+            <div class="modal-click-item">Доска 3</div>
          </div>
         </div>
       </section>
@@ -63,241 +64,49 @@
               />
               <p class="card__text">Lorem ipsum!</p>
             </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item">
-          <div class="card">
-            <img
-              src="./public/img/example.jpg"
-              alt="sample"
-              class="card__pic"
-            />
-            <div class="card__description">
-              <img
-                src="./public/img/user-avatar.png"
-                alt="avatar"
-                class="card__avatar"
-              />
-              <p class="card__text">Lorem ipsum!</p>
+            <div class="card__actions">
+              <div class="modal-click-item">Открыть</div>
+              <div class="modal-click-item">Добавить на доску</div>
+              <div class="modal-click-item">Пожаловаться</div>
             </div>
           </div>
         </div>
       </section>
-        
-
-
-        <div class="board__info">
-          <img 
-            src="./public/img/example.jpg" 
-            alt="avatar"
-            class="board__info-pic"
-          />
-        <div class="board__info-description">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-            <p>aut doloribus quia dicta blanditiis et soluta</p>
-            <p> odio, labore numquam doloremque quos laborum</p>
-            <p> animi temporibus consequuntur quo iusto expedita?</p>
+      <div class="card-modal" hidden>
+        <img 
+          src="./public/img/example.jpg" 
+          alt="avatar"
+          class="card-modal__pic"
+        />
+        <div class="card-modal__info">
+          <div class="card-modal__desc">
+            <p> 
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
           </div>
-          <img 
-            src="./public/img/user-avatar.png" 
-            alt="avatar"
-            class="board__info-avatar"
-          />
-          <div class="board__info-name">Lorem ipsum dolor sit.</div>
+          <div class="card-modal__author">
+            <img 
+              src="./public/img/user-avatar.png" 
+              alt="avatar"
+              class="card-modal__avatar"
+            />
+            <div class="card-modal__name">Lorem ipsum dolor sit.</div>
+          </div>
         </div>
-
-        <div class="board__report">
-          <input type="checkbox"class="checkbox">Насилие<br>
-          <input type="checkbox"class="checkbox">Расовая дискриминация<br>
-          <input type="checkbox"class="checkbox">Контент для взрослых<br>
-          <input type="checkbox"class="checkbox">Жестокое обращение с животными<br>
-          <input type="checkbox"class="checkbox">Дезинформация<br>
-          <input type="checkbox"class="checkbox">Мошенничество<br>
-          <input type="checkbox"class="checkbox">Контрафакция<br>
-          <button type="button" class="cancel_button">cancel</button>
-          <button type="button" class="send_button">send</button>  
-        </div>
-        <div class="board__add-desk">
-           <div>Добавить на доску:</div>
-           <div class="click">Доска 1</div>
-           <div class="click">Доска 2</div>
-           <div class="click">Доска 3</div>
-        </div> 
-        <div class="board__active">
-          <div class="open">Открыть</div>
-          <div class="add">Добавить на доску</div>
-          <div class="report">Пожаловаться</div>
-        </div>
-     </div>
+      </div>
+      <div class="report-modal" hidden>
+        <input type="checkbox" class="report-modal__checkbox">  Насилие<br>
+        <input type="checkbox" class="report-modal__checkbox">  Расовая дискриминация<br>
+        <input type="checkbox" class="report-modal__checkbox">  Контент для взрослых<br>
+        <input type="checkbox" class="report-modal__checkbox">  Жестокое обращение с животными<br>
+        <input type="checkbox" class="report-modal__checkbox">  Дезинформация<br>
+        <input type="checkbox" class="report-modal__checkbox">  Мошенничество<br>
+        <input type="checkbox" class="report-modal__checkbox">  Контрафакция<br>
+        <button type="button" class="report-modal__button">cancel</button>
+        <button type="button" class="report-modal__button">send</button>  
+      </div>
+   </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

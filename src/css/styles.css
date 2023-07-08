@@ -113,6 +113,38 @@
     display: none;
   }
 }
+.header__dropdown-menu {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  right: 1px;
+  position: absolute;
+}
+@media (max-width: 770px) {
+  .header__dropdown-menu {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .header__dropdown-menu {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .header__dropdown-menu {
+    max-width: 120px;
+    max-height: 100%;
+    font-size: 15px;
+  }
+}
 
 .grid {
   display: grid;
@@ -147,8 +179,114 @@
   font-family: "Commisioner";
   font-weight: 500;
 }
+.card__actions {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card:hover .card__actions {
+  display: flex;
+}
 
-.cancel_button, .send_button {
+.modal-click-item:hover {
+  color: bisque;
+  cursor: pointer;
+  transform: translateY(-3px);
+  transition: all 0.5s;
+}
+
+.card-modal {
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  position: absolute;
+  max-width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-modal__pic {
+  width: 200px;
+  height: 300px;
+}
+.card-modal__info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.card-modal__desc {
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgb(190, 190, 190);
+  line-height: 20px;
+}
+.card-modal__author {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card-modal__avatar {
+  width: 30px;
+  height: 30px;
+}
+.card-modal__name {
+  margin-left: 5px;
+  font-size: 14px;
+  line-height: 14px;
+}
+.report-modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Commisioner";
+  font-weight: 500;
+  padding: 30px;
+  background-color: rgb(230, 0, 36);
+  border: rgb(190, 190, 190) 2px solid;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  max-width: 320px;
+  position: absolute;
+}
+@media (max-width: 590px) {
+  .report-modal {
+    font-size: 14px;
+    padding: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .report-modal {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+.report-modal__button {
   margin-top: 20px;
   padding: 5px;
   width: 70px;
@@ -157,181 +295,14 @@
   cursor: pointer;
   font-size: 16px;
 }
-.cancel_button:hover, .send_button:hover {
+.report-modal__button:hover {
   background-color: bisque;
 }
-.cancel_button:active, .send_button:active {
+.report-modal__button:active {
   background-color: rgb(230, 0, 36);
   color: white;
 }
 
-.click:hover, .open:hover, .add:hover, .report:hover {
-  color: bisque;
-  cursor: pointer;
-  transform: translateY(-3px);
-  transition: all 0.5s;
-}
-
-.board__selection-list {
-  font-family: "Commisioner";
-  font-weight: 500;
-  padding: 30px;
-  background-color: rgb(230, 0, 36);
-  border: rgb(190, 190, 190) 2px solid;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  max-width: 320px;
-  line-height: 40px;
-  right: 1px;
-  position: absolute;
-}
-@media (max-width: 770px) {
-  .board__selection-list {
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-@media (max-width: 590px) {
-  .board__selection-list {
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-@media (max-width: 450px) {
-  .board__selection-list {
-    max-width: 120px;
-    max-height: 100%;
-    font-size: 15px;
-  }
-}
-.board__info {
-  width: 300px;
-  max-height: 100%;
-  font-family: "Commisioner";
-  font-weight: 500;
-  padding: 30px;
-  background: rgb(230, 0, 36);
-  border: rgb(190, 190, 190) 2px solid;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.board__info-avatar {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-.board__info-avatar:hover {
-  transform: translateY(-3px);
-  transition: all 0.5s;
-}
-.board__info-pic {
-  width: 180px;
-  height: 200px;
-}
-@media (max-width: 450px) {
-  .board__info-pic {
-    width: 100px;
-    height: 50px;
-  }
-}
-@media (max-width: 770px) {
-  .board__info {
-    max-width: 280px;
-    max-height: 100%;
-  }
-}
-@media (max-width: 590px) {
-  .board__info {
-    max-width: 220px;
-    max-height: 100%;
-    font-size: 16px;
-  }
-}
-@media (max-width: 450px) {
-  .board__info {
-    max-width: 200px;
-    max-height: 100%;
-    font-size: 15px;
-  }
-}
-.board__active {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Commisioner";
-  font-weight: 500;
-  padding: 30px;
-  background-color: rgb(230, 0, 36);
-  border: rgb(190, 190, 190) 2px solid;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  max-width: 320px;
-  line-height: 40px;
-  max-width: 100%;
-  max-height: 100%;
-}
-@media (max-width: 770px) {
-  .board__active {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media (max-width: 590px) {
-  .board__active {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media (max-width: 450px) {
-  .board__active {
-    width: 100%;
-    height: 100%;
-  }
-}
-.board__report {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Commisioner";
-  font-weight: 500;
-  padding: 30px;
-  background-color: rgb(230, 0, 36);
-  border: rgb(190, 190, 190) 2px solid;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  max-width: 320px;
-  line-height: 40px;
-  max-width: 320px;
-  position: absolute;
-}
-@media (max-width: 770px) {
-  .board__report {
-    width: 280px;
-    height: 100%;
-  }
-}
-@media (max-width: 590px) {
-  .board__report {
-    width: 230px;
-    height: 100%;
-  }
-}
-@media (max-width: 450px) {
-  .board__report {
-    width: 200px;
-    height: 100%;
-  }
-}
 .board__add-desk {
   position: absolute;
   top: 50%;
@@ -342,10 +313,9 @@
   padding: 30px;
   background-color: rgb(230, 0, 36);
   border: rgb(190, 190, 190) 2px solid;
-  border-radius: 20px;
+  border-radius: 15px;
   color: white;
   text-align: center;
-  max-width: 320px;
   line-height: 40px;
   max-width: 250px;
 }
@@ -371,4 +341,4 @@
 @font-face {
   font-family: "Commisioner";
   src: url(../public/fonts/Commissioner-Medium.ttf);
-}/*# sourceMappingURL=styles.css.map */
+}
