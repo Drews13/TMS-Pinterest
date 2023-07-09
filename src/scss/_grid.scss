@@ -6,6 +6,7 @@
   max-width: 1370px;
   margin: 30px auto;
   margin-bottom: 50px;
+  padding: 0 15px;
 }
 
 .card {
@@ -67,6 +68,7 @@
   &:hover .card__actions {
     display: flex;
   }
+
 }
 
 .button-container {
@@ -93,4 +95,11 @@
 .grid-button:hover {
   transform: scale(1.05);
   background-color: $primary-hover;
+}
+
+.grid__message {
+  font-family: "Commisioner";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
 }

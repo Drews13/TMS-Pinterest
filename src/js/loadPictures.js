@@ -2,11 +2,51 @@ import { LIMIT } from "./constants.js";
 
 let data = [];
 let i = 0;
+let a = 1;
 let from = 0;
 let to;
 let grid = document.querySelector(".grid");
 let wrapper = document.querySelector(".wrapper");
 let logo = document.querySelector(".header__logo");
+let searchInput = document.getElementById("search");
+let onSearch = false;
+
+async function searchPictures() {
+  let str = searchInput.value;
+  let searchData = [];
+  if (str.length >= 2 && str != " ") {
+    onSearch = true;
+    grid.innerHTML = "";
+    let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
+    url.searchParams.append("page", a);
+    url.searchParams.append("limit", LIMIT);
+    url.searchParams.append("description", str);
+    await fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        searchData = res;
+      })
+      .catch((err) => console.log(err.message));
+    renderPictures(searchData);
+    if (searchData.length < 12) {
+      showMoreBtn.style.display = "none";
+    }
+    if (searchData.length === 0) {
+      message.style.display = "block";
+    } else {
+      message.style.display = "none";
+    }
+  }
+  if (str.length < 2) {
+    onSearch = false;
+    searchData = [];
+    grid.innerHTML = "";
+    a = 1;
+    message.style.display = "none";
+    showMoreBtn.style.display = "block";
+    renderPictures(data);
+  }
+}
 
 async function getPictures() {
   i++;
@@ -20,7 +60,9 @@ async function getPictures() {
     })
     .catch((err) => console.log(err.message));
   renderPictures(data.slice(from, to));
-  console.log(data.slice(from, to));
+  if (data.length === 100) {
+    showMoreBtn.style.display = "none";
+  }
 }
 
 function renderPictures(data) {
@@ -81,15 +123,29 @@ let showMoreBtn = document.createElement("button");
 showMoreBtn.classList.add("grid-button");
 showMoreBtn.innerText = "показать еще";
 
+let message = document.createElement("p");
+message.classList.add("grid__message");
+message.innerText = "ничего не найдено";
+showMoreBtnWrapper.appendChild(message);
+message.style.display = "none";
+
 showMoreBtn.onclick = () => {
-  let to = from + LIMIT;
-  getPictures();
-  from = to;
+  if (onSearch == true) {
+    a++;
+    searchPictures();
+  }
+  if (onSearch == false) {
+    let to = from + LIMIT;
+    from = to;
+    getPictures();
+  }
 };
 
 logo.onclick = () => {
   grid.innerHTML = "";
   location.reload();
 };
+
+searchInput.addEventListener("input", searchPictures);
 
 export { getPictures };
