@@ -68,6 +68,25 @@ function createCard(card) {
   cardText.innerText = card.description;
   cardDescription.appendChild(cardText);
 
+  let cardActions = document.createElement('div');
+  cardActions.classList.add("card__actions");
+  gridCard.appendChild(cardActions);
+  
+  let modalItem_1 = document.createElement('div');
+  modalItem_1.classList.add('modal-click-item');
+  modalItem_1.innerText = "Открыть";
+  cardActions.appendChild(modalItem_1);
+
+  let modalItem_2 = document.createElement('div');
+  modalItem_2.classList.add('modal-click-item');
+  modalItem_2.innerText = "Добавить на доску";
+  cardActions.appendChild(modalItem_2);
+
+  let modalItem_3 = document.createElement('div');
+  modalItem_3.classList.add('modal-click-item');
+  modalItem_3.innerText = "Пожаловаться";
+  cardActions.appendChild(modalItem_3);
+
   grid.appendChild(gridItem);
 
   showMoreBtnWrapper.appendChild(showMoreBtn);

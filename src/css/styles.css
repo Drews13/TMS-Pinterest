@@ -120,6 +120,7 @@
   line-height: 40px;
   right: 1px;
   position: absolute;
+  z-index: 2;
 }
 @media (max-width: 770px) {
   .header__dropdown-menu {
