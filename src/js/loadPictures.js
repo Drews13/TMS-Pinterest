@@ -1,4 +1,5 @@
 import { LIMIT } from "./constants.js";
+import { changeModalVisibility, createCardModal } from "./modals.js";
 
 let data = [];
 let i = 0;
@@ -75,16 +76,21 @@ function createCard(card) {
   let modalItem_1 = document.createElement('div');
   modalItem_1.classList.add('modal-click-item');
   modalItem_1.innerText = "Открыть";
+  modalItem_1.onclick = () => createCardModal(card);
   cardActions.appendChild(modalItem_1);
 
   let modalItem_2 = document.createElement('div');
   modalItem_2.classList.add('modal-click-item');
   modalItem_2.innerText = "Добавить на доску";
+  let addToDeskModal = document.querySelector('.add-to-desk-modal-wrapper');
+  modalItem_2.onclick = (event) => changeModalVisibility(event, addToDeskModal);
   cardActions.appendChild(modalItem_2);
 
   let modalItem_3 = document.createElement('div');
   modalItem_3.classList.add('modal-click-item');
   modalItem_3.innerText = "Пожаловаться";
+  let reportModal = document.querySelector('.report-modal-wrapper');
+  modalItem_3.onclick = (event) => changeModalVisibility(event, reportModal);
   cardActions.appendChild(modalItem_3);
 
   grid.appendChild(gridItem);
