@@ -1,13 +1,28 @@
 import { LIMIT } from "./constants.js";
-import { changeModalVisibility, createCardModal } from "./modals.js";
+import { deleteCardFromDesk } from "./desks.js";
+import { getName } from "./localStorrage.js";
+import { changeModalVisibility, createAddToDeskModal, createCardModal } from "./modals.js";
 
-let data = [];
+export let data = [];
 let i = 0;
 let from = 0;
 let to;
 let grid = document.querySelector(".grid");
 let wrapper = document.querySelector(".wrapper");
 let logo = document.querySelector(".header__logo");
+
+export function updateData() {
+  i = 0;
+  from = 0;
+  grid.innerHTML = "";
+  let currDesk = getName("currDesk");
+  if (currDesk) {
+    data = getName(`desk_${currDesk}`);
+    renderPictures(data);
+  } else {
+    getPictures();
+  }
+}
 
 async function getPictures() {
   i++;
@@ -21,7 +36,6 @@ async function getPictures() {
     })
     .catch((err) => console.log(err.message));
   renderPictures(data.slice(from, to));
-  console.log(data.slice(from, to));
 }
 
 function renderPictures(data) {
@@ -81,9 +95,15 @@ function createCard(card) {
 
   let modalItem_2 = document.createElement('div');
   modalItem_2.classList.add('modal-click-item');
-  modalItem_2.innerText = "Добавить на доску";
-  let addToDeskModal = document.querySelector('.add-to-desk-modal-wrapper');
-  modalItem_2.onclick = (event) => changeModalVisibility(event, addToDeskModal);
+  let currDesk = getName("currDesk");
+  if (currDesk) {
+    modalItem_2.innerText = "Удалить";
+    modalItem_2.onclick = () => deleteCardFromDesk(data, currDesk, card.id);
+  } else {
+    modalItem_2.innerText = "Добавить на доску";
+    let addToDeskModal = document.querySelector('.add-to-desk-modal-wrapper');
+    modalItem_2.onclick = (event) => createAddToDeskModal(event, addToDeskModal, card);
+  }
   cardActions.appendChild(modalItem_2);
 
   let modalItem_3 = document.createElement('div');

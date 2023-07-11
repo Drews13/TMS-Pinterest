@@ -4,6 +4,7 @@ export function changeModalVisibility(event, modal) {
 }
 
 export function closeDropdown(event, dropdown) {
+  console.log(event.target);
   if (!event.target.closest(".header__dropdown-menu") && !dropdown.hidden) {
     changeModalVisibility(event, dropdown);
   }
@@ -23,6 +24,11 @@ export function closeModal(event, modal) {
   if (event.target === modal) {
     changeModalVisibility(event, modal);
   }
+}
+
+export function createAddToDeskModal(event, modal, card) {
+  modal.setAttribute("id", `${card.id}`);
+  changeModalVisibility(event, modal);
 }
 
 export function createCardModal(card) {
