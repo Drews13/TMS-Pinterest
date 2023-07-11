@@ -1,17 +1,20 @@
+import { className, imgAlt } from "./textConstants.js";
+
 export function changeModalVisibility(event, modal) {
   modal.hidden = !modal.hidden;
-  event.stopPropagation();
+  if (event.target.closest('.' + className.headerDropdownButton)) {
+    event.stopPropagation();
+  } 
 }
 
 export function closeDropdown(event, dropdown) {
-  console.log(event.target);
-  if (!event.target.closest(".header__dropdown-menu") && !dropdown.hidden) {
+  if (!event.target.closest('.' + className.headerDropdownMenu) && !dropdown.hidden) {
     changeModalVisibility(event, dropdown);
   }
 }
 
 export function closeReportModal(event, modal) {
-  if (event.target === modal || event.target.className === 'report-modal__button') {
+  if (event.target === modal || event.target.className === className.reportModalButton) {
     let children = modal.children[0].childNodes;
     children.forEach(el => {
       el.checked = false;
@@ -33,25 +36,25 @@ export function createAddToDeskModal(event, modal, card) {
 
 export function createCardModal(card) {
   let cardModalWrapper = document.createElement("div");
-  cardModalWrapper.classList.add("card-modal-wrapper");
+  cardModalWrapper.classList.add(className.cardModalWrapper);
   cardModalWrapper.onclick = (event) => closeModal(event, cardModalWrapper);
 
   let cardModal = document.createElement("div");
-  cardModal.classList.add("card-modal");
+  cardModal.classList.add(className.cardModal);
   cardModalWrapper.appendChild(cardModal);
 
   let cardImg = document.createElement("img");
-  cardImg.classList.add("card-modal__pic");
+  cardImg.classList.add(className.cardModalPicture);
   cardImg.setAttribute("src", `${card.image}`);
-  cardImg.setAttribute("alt", "image");
+  cardImg.setAttribute("alt", imgAlt.image);
   cardModal.appendChild(cardImg);
   
   let cardInfo = document.createElement("div");
-  cardInfo.classList.add("card-modal__info");
+  cardInfo.classList.add(className.cardModalInfo);
   cardModal.appendChild(cardInfo);
 
   let cardDesc = document.createElement("div");
-  cardDesc.classList.add("card-modal__desc");
+  cardDesc.classList.add(className.cardModalDesc);
   cardInfo.appendChild(cardDesc);
 
   let pDesc = document.createElement("p");
@@ -59,20 +62,20 @@ export function createCardModal(card) {
   cardDesc.appendChild(pDesc);
 
   let cardAuthor = document.createElement("div");
-  cardAuthor.classList.add("card-modal__author");
+  cardAuthor.classList.add(className.cardModalAuthor);
   cardInfo.appendChild(cardAuthor);
 
   let cardAvatar = document.createElement("img");
-  cardAvatar.classList.add("card-modal__avatar");
+  cardAvatar.classList.add(className.cardModalAvatar);
   cardAvatar.setAttribute("src", `${card.authorAvatar}`);
-  cardAvatar.setAttribute("alt", "avatar");
+  cardAvatar.setAttribute("alt", imgAlt.avatar);
   cardAuthor.appendChild(cardAvatar);
 
   let cardName = document.createElement("div");
-  cardName.classList.add("card-modal__name");
+  cardName.classList.add(className.cardModalName);
   cardName.innerText = card.author;
   cardAuthor.appendChild(cardName);
 
-  let appWrapper = document.querySelector('.wrapper');
+  let appWrapper = document.querySelector('.' + className.appWrapper);
   appWrapper.appendChild(cardModalWrapper);
 }

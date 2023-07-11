@@ -1,7 +1,6 @@
 import { LIMIT } from "./constants.js";
-import { deleteCardFromDesk } from "./desks.js";
+import { determineCardClick } from "./delegation.js";
 import { getName } from "./localStorrage.js";
-import { changeModalVisibility, createAddToDeskModal, createCardModal } from "./modals.js";
 
 export let data = [];
 let i = 0;
@@ -90,28 +89,21 @@ function createCard(card) {
   let modalItem_1 = document.createElement('div');
   modalItem_1.classList.add('modal-click-item');
   modalItem_1.innerText = "Открыть";
-  modalItem_1.onclick = () => createCardModal(card);
   cardActions.appendChild(modalItem_1);
 
   let modalItem_2 = document.createElement('div');
   modalItem_2.classList.add('modal-click-item');
   let currDesk = getName("currDesk");
-  if (currDesk) {
-    modalItem_2.innerText = "Удалить";
-    modalItem_2.onclick = () => deleteCardFromDesk(data, currDesk, card.id);
-  } else {
-    modalItem_2.innerText = "Добавить на доску";
-    let addToDeskModal = document.querySelector('.add-to-desk-modal-wrapper');
-    modalItem_2.onclick = (event) => createAddToDeskModal(event, addToDeskModal, card);
-  }
+  modalItem_2.innerText = currDesk ? "Удалить с доски" : "Добавить на доску";
   cardActions.appendChild(modalItem_2);
 
   let modalItem_3 = document.createElement('div');
   modalItem_3.classList.add('modal-click-item');
   modalItem_3.innerText = "Пожаловаться";
-  let reportModal = document.querySelector('.report-modal-wrapper');
-  modalItem_3.onclick = (event) => changeModalVisibility(event, reportModal);
   cardActions.appendChild(modalItem_3);
+
+  cardActions.onclick = event => determineCardClick(event, card, currDesk);
+
 
   grid.appendChild(gridItem);
 

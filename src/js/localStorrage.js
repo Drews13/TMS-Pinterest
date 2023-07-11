@@ -16,8 +16,11 @@ export function getFromStorrage(name, id) {
 
 export function addToStorrage(name, obj) {
   let items = getName(name);
-  items.push(obj);
-  setName(name, items);
+  let item = items.find(item => item.id == obj.id);
+  if (!item) {
+    items.push(obj);
+    setName(name, items);
+  }
 }
 
 export function deleteFromStorrage(name, id) {

@@ -1,22 +1,21 @@
 import { addToStorrage, deleteFromStorrage, setName } from "./localStorrage.js";
 import { data, updateData } from "./loadPictures.js";
-import { changeModalVisibility } from "./modals.js";
+import { localStorageNames } from "./textConstants.js";
 
-export function addToDesk(event, modal, index) {
-  let deskName = `desk_${index}`;
+export function addToDesk(modal, index) {
+  let deskName = localStorageNames.desk + index;
   let card = data.find(el => el.id === modal.getAttribute("id"));
   addToStorrage(deskName, card);
-  changeModalVisibility(event, modal);
 }
 
-export function changeDesk(event, modal, index) {
-  setName("currDesk", index);
-  changeModalVisibility(event, modal);
+export function changeDesk(index) {
+  setName(localStorageNames.currDesk, index);
   updateData();
 }
 
-export function deleteCardFromDesk(data, currDesk, id) {
-  deleteFromStorrage(`desk_${currDesk}`, id);
+export function deleteCardFromDesk(currDesk, id) {
+  let deskName = localStorageNames.desk + currDesk;
+  deleteFromStorrage(deskName, id);
   let ind = data.findIndex(item => item.id == id);
   data.splice(ind, 1);
   updateData();
