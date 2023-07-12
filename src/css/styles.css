@@ -8,6 +8,7 @@
 .header {
   display: flex;
   margin-top: 20px;
+  padding: 0 15px;
 }
 .header__logo {
   cursor: pointer;
@@ -149,6 +150,7 @@
   max-width: 1370px;
   margin: 30px auto;
   margin-bottom: 50px;
+  padding: 0 15px;
 }
 
 .card {
@@ -238,6 +240,13 @@
 .grid-button:hover {
   transform: scale(1.05);
   background-color: rgb(189, 8, 28);
+}
+
+.grid__message {
+  font-family: "Commisioner";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
 }
 
 .modal-click-item:hover {

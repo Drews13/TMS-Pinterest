@@ -1,26 +1,67 @@
 import { LIMIT } from "./constants.js";
+import { regEx } from "./regExprs.js";
+import { debounce } from "./debounce.js";
 
 let data = [];
-let i = 0;
+let i = 1;
+let a = 1;
 let from = 0;
 let to;
 let grid = document.querySelector(".grid");
 let wrapper = document.querySelector(".wrapper");
 let logo = document.querySelector(".header__logo");
+let searchInput = document.getElementById("search");
+let onSearch = false;
 
 async function getPictures() {
-  i++;
+  let str = searchInput.value;
   let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
-  url.searchParams.append("page", i);
-  url.searchParams.append("limit", LIMIT);
+  if (str.length >= 2) {
+    onSearch = true;
+    data = [];
+    i = 1;
+    from = 0;
+    grid.innerHTML = "";
+    url.searchParams.append("description", str);
+    url.searchParams.append("page", a);
+    url.searchParams.append("limit", LIMIT);
+  }
+  if (str.length === 0) {
+    onSearch = false;
+    a = 1;
+    url.searchParams.append("page", i);
+    url.searchParams.append("limit", LIMIT);
+  }
+  if (str.length === 1) {
+    showMoreBtn.style.display = "none";
+    data = [];
+    grid.innerHTML = "";
+    return;
+  }
+
   await fetch(url)
     .then((res) => res.json())
     .then((res) => {
       data = data.concat(res);
+      if (res.length < 12) {
+        showMoreBtn.style.display = "none";
+        message.style.display = "none";
+      }
+      if (res.length == 0) {
+        message.style.display = "block";
+      }
+      if (res.length >= 12) {
+        showMoreBtn.style.display = "block";
+        message.style.display = "none";
+      }
     })
     .catch((err) => console.log(err.message));
-  renderPictures(data.slice(from, to));
-  console.log(data.slice(from, to));
+  if (str.length >= 2) {
+    renderPictures(data);
+  }
+  if (str.length == 0) {
+    renderPictures(data.slice(from, to));
+  }
 }
 
 function renderPictures(data) {
@@ -81,15 +122,40 @@ let showMoreBtn = document.createElement("button");
 showMoreBtn.classList.add("grid-button");
 showMoreBtn.innerText = "показать еще";
 
+let message = document.createElement("p");
+message.classList.add("grid__message");
+message.innerText = "ничего не найдено";
+showMoreBtnWrapper.appendChild(message);
+message.style.display = "none";
+
 showMoreBtn.onclick = () => {
-  let to = from + LIMIT;
+  if (onSearch == true) {
+    a++;
+  }
+  else {
+    i++;
+    let to = from + LIMIT;
+    from = to;
+  }
   getPictures();
-  from = to;
-};
+}
 
 logo.onclick = () => {
   grid.innerHTML = "";
   location.reload();
 };
+
+function searchCards() {
+  !regEx.test(searchInput.value) ? getPictures() : (searchInput.value = "");
+  if (searchInput.value.length === 0) {
+    grid.innerHTML = "";
+    data = [];
+    getPictures();
+  }
+}
+
+let debouncedSearchCards = debounce(searchCards);
+
+searchInput.addEventListener("input", debouncedSearchCards);
 
 export { getPictures };
