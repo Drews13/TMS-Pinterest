@@ -70,13 +70,13 @@
 
 }
 
-.button-container {
+.pagination {
   margin: auto;
   margin-bottom: 30px;
   width: 50%;
-}
 
-.grid-button {
+  &__button {
+    display: none;
     font-family: "Commisioner";
     font-weight: 500;
     padding: 10px;
@@ -89,16 +89,24 @@
     border: none;
     cursor: pointer;
     transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $primary-hover;
+    }
+  }
+
+  &__message {
+    display: none;
+    font-family: "Commisioner";
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+  }
 }
 
-.grid-button:hover {
-  transform: scale(1.05);
-  background-color: $primary-hover;
-}
-
-.grid__message {
+.desk-number {
   font-family: "Commisioner";
-  font-weight: 600;
-  font-size: 24px;
+  margin-top: 20px;
   text-align: center;
 }

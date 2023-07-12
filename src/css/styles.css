@@ -5,6 +5,11 @@
   outline: none;
 }
 
+.wrapper {
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
 .header {
   display: flex;
   margin-top: 20px;
@@ -121,6 +126,7 @@
   line-height: 40px;
   right: 1px;
   position: absolute;
+  z-index: 2;
 }
 @media (max-width: 770px) {
   .header__dropdown-menu {
@@ -150,7 +156,6 @@
   max-width: 1370px;
   margin: 30px auto;
   margin-bottom: 50px;
-  padding: 0 15px;
 }
 
 .card {
@@ -216,13 +221,13 @@
   display: flex;
 }
 
-.button-container {
+.pagination {
   margin: auto;
   margin-bottom: 30px;
   width: 50%;
 }
-
-.grid-button {
+.pagination__button {
+  display: none;
   font-family: "Commisioner";
   font-weight: 500;
   padding: 10px;
@@ -236,16 +241,21 @@
   cursor: pointer;
   transition: 0.5s;
 }
-
-.grid-button:hover {
+.pagination__button:hover {
   transform: scale(1.05);
   background-color: rgb(189, 8, 28);
 }
-
-.grid__message {
+.pagination__message {
+  display: none;
   font-family: "Commisioner";
   font-weight: 600;
   font-size: 24px;
+  text-align: center;
+}
+
+.desk-number {
+  font-family: "Commisioner";
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -254,6 +264,15 @@
   cursor: pointer;
   transform: translateY(-3px);
   transition: all 0.5s;
+}
+
+.report-modal-wrapper, .add-to-desk-modal-wrapper, .card-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .card-modal {
@@ -267,14 +286,13 @@
   text-align: center;
   line-height: 40px;
   position: absolute;
-  max-width: 300px;
+  min-width: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .card-modal__pic {
-  width: 200px;
-  height: 300px;
+  width: 100%;
 }
 .card-modal__info {
   padding: 10px;
@@ -303,6 +321,17 @@
   font-size: 14px;
   line-height: 14px;
 }
+@media (max-width: 1136px) {
+  .card-modal {
+    min-width: 600px;
+  }
+}
+@media (max-width: 650px) {
+  .card-modal {
+    min-width: calc(100% - 60px);
+  }
+}
+
 .report-modal {
   top: 50%;
   left: 50%;

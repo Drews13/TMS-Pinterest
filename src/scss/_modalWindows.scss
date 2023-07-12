@@ -7,17 +7,20 @@
   }
 }
 
+.report-modal-wrapper, .add-to-desk-modal-wrapper, .card-modal-wrapper {
+  @include modal-wrapper;
+}
+
 .card-modal {
   @include modal-primary;
   position: absolute;
-  max-width: 300px;
+  min-width: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   &__pic {
-    width: 200px;
-    height: 300px;
+    width: 100%;
   }
 
   &__info {
@@ -52,16 +55,12 @@
     line-height: 14px;
   }
 
-  @media (max-width: 770px) {
-    
+  @media (max-width: 1136px) {
+    min-width: 600px;
   }
 
-  @media (max-width: 590px) {
-    
-  }
-
-  @media (max-width: 450px) {
-    
+  @media (max-width: 650px) {
+    min-width: calc(100% - 60px);
   }
 }
 
