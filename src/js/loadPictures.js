@@ -1,7 +1,9 @@
 import { LIMIT } from "./constants.js";
+import { regEx } from "./regExprs.js";
+import { debounce } from "./debounce.js";
 
 let data = [];
-let i = 0;
+let i = 1;
 let a = 1;
 let from = 0;
 let to;
@@ -11,57 +13,54 @@ let logo = document.querySelector(".header__logo");
 let searchInput = document.getElementById("search");
 let onSearch = false;
 
-async function searchPictures() {
+async function getPictures() {
   let str = searchInput.value;
-  let searchData = [];
-  if (str.length >= 2 && str != " ") {
+  let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
+  if (str.length >= 2) {
     onSearch = true;
+    data = [];
+    i = 1;
+    from = 0;
     grid.innerHTML = "";
-    let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
+    url.searchParams.append("description", str);
     url.searchParams.append("page", a);
     url.searchParams.append("limit", LIMIT);
-    url.searchParams.append("description", str);
-    await fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        searchData = res;
-      })
-      .catch((err) => console.log(err.message));
-    renderPictures(searchData);
-    if (searchData.length < 12) {
-      showMoreBtn.style.display = "none";
-    }
-    if (searchData.length === 0) {
-      message.style.display = "block";
-    } else {
-      message.style.display = "none";
-    }
   }
-  if (str.length < 2) {
+  if (str.length === 0) {
     onSearch = false;
-    searchData = [];
-    grid.innerHTML = "";
     a = 1;
-    message.style.display = "none";
-    showMoreBtn.style.display = "block";
-    renderPictures(data);
+    url.searchParams.append("page", i);
+    url.searchParams.append("limit", LIMIT);
   }
-}
+  if (str.length === 1) {
+    showMoreBtn.style.display = "none";
+    data = [];
+    grid.innerHTML = "";
+    return;
+  }
 
-async function getPictures() {
-  i++;
-  let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
-  url.searchParams.append("page", i);
-  url.searchParams.append("limit", LIMIT);
   await fetch(url)
     .then((res) => res.json())
     .then((res) => {
       data = data.concat(res);
+      if (res.length < 12) {
+        showMoreBtn.style.display = "none";
+        message.style.display = "none";
+      }
+      if (res.length == 0) {
+        message.style.display = "block";
+      }
+      if (res.length >= 12) {
+        showMoreBtn.style.display = "block";
+        message.style.display = "none";
+      }
     })
     .catch((err) => console.log(err.message));
-  renderPictures(data.slice(from, to));
-  if (data.length === 100) {
-    showMoreBtn.style.display = "none";
+  if (str.length >= 2) {
+    renderPictures(data);
+  }
+  if (str.length == 0) {
+    renderPictures(data.slice(from, to));
   }
 }
 
@@ -132,20 +131,31 @@ message.style.display = "none";
 showMoreBtn.onclick = () => {
   if (onSearch == true) {
     a++;
-    searchPictures();
   }
-  if (onSearch == false) {
+  else {
+    i++;
     let to = from + LIMIT;
     from = to;
-    getPictures();
   }
-};
+  getPictures();
+}
 
 logo.onclick = () => {
   grid.innerHTML = "";
   location.reload();
 };
 
-searchInput.addEventListener("input", searchPictures);
+function searchCards() {
+  !regEx.test(searchInput.value) ? getPictures() : (searchInput.value = "");
+  if (searchInput.value.length === 0) {
+    grid.innerHTML = "";
+    data = [];
+    getPictures();
+  }
+}
+
+let debouncedSearchCards = debounce(searchCards);
+
+searchInput.addEventListener("input", debouncedSearchCards);
 
 export { getPictures };
