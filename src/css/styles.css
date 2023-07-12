@@ -15,6 +15,11 @@
   margin-top: 20px;
   padding: 0 15px;
 }
+@media (max-width: 450px) {
+  .header {
+    padding: 0;
+  }
+}
 .header__logo {
   cursor: pointer;
 }
@@ -47,6 +52,11 @@
 .header__search {
   flex: 1 1 auto;
   margin: 0 25px;
+}
+@media (max-width: 450px) {
+  .header__search {
+    margin: 0 5px;
+  }
 }
 .header__search-item {
   height: 100%;
@@ -118,15 +128,17 @@
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
-  background-color: rgb(230, 0, 36);
+  background-color: white;
   border: rgb(190, 190, 190) 2px solid;
   border-radius: 15px;
   color: white;
   text-align: center;
   line-height: 40px;
+  color: black;
   right: 1px;
   position: absolute;
   z-index: 2;
+  margin-right: 15px;
 }
 @media (max-width: 770px) {
   .header__dropdown-menu {
@@ -142,9 +154,10 @@
 }
 @media (max-width: 450px) {
   .header__dropdown-menu {
-    max-width: 120px;
+    max-width: 150px;
     max-height: 100%;
     font-size: 15px;
+    margin-top: 5px;
   }
 }
 
@@ -156,6 +169,16 @@
   max-width: 1370px;
   margin: 30px auto;
   margin-bottom: 50px;
+}
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+@media (max-width: 320px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 
 .card {
@@ -200,7 +223,7 @@
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
-  background-color: rgb(230, 0, 36);
+  background-color: white;
   border: rgb(190, 190, 190) 2px solid;
   border-radius: 15px;
   color: white;
@@ -260,7 +283,7 @@
 }
 
 .modal-click-item:hover {
-  color: bisque;
+  color: rgb(230, 0, 36);
   cursor: pointer;
   transform: translateY(-3px);
   transition: all 0.5s;
@@ -279,7 +302,7 @@
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
-  background-color: rgb(230, 0, 36);
+  background-color: white;
   border: rgb(190, 190, 190) 2px solid;
   border-radius: 15px;
   color: white;
@@ -300,6 +323,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: black;
 }
 .card-modal__desc {
   padding-bottom: 10px;
@@ -313,8 +337,9 @@
   justify-content: space-around;
 }
 .card-modal__avatar {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 .card-modal__name {
   margin-left: 5px;
@@ -339,14 +364,16 @@
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
-  background-color: rgb(230, 0, 36);
+  background-color: white;
   border: rgb(190, 190, 190) 2px solid;
   border-radius: 15px;
   color: white;
   text-align: center;
   line-height: 40px;
-  max-width: 320px;
+  max-width: 350px;
+  width: 100%;
   position: absolute;
+  color: black;
 }
 @media (max-width: 590px) {
   .report-modal {
@@ -363,14 +390,16 @@
 .report-modal__button {
   margin-top: 20px;
   padding: 5px;
-  width: 70px;
+  width: 90px;
   border-radius: 10px;
-  background-color: rgb(190, 190, 190);
+  border: none;
   cursor: pointer;
   font-size: 16px;
+  background-color: rgb(230, 0, 36);
+  color: white;
 }
 .report-modal__button:hover {
-  background-color: bisque;
+  background-color: rgb(189, 8, 28);
 }
 .report-modal__button:active {
   background-color: rgb(230, 0, 36);
@@ -381,17 +410,19 @@
   font-family: "Commisioner";
   font-weight: 500;
   padding: 30px;
-  background-color: rgb(230, 0, 36);
+  background-color: white;
   border: rgb(190, 190, 190) 2px solid;
   border-radius: 15px;
   color: white;
   text-align: center;
   line-height: 40px;
+  color: black;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 250px;
+  max-width: 350px;
+  width: 100%;
 }
 
 @font-face {
