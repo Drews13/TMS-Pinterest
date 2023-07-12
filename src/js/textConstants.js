@@ -27,7 +27,11 @@ export const className = {
   reportModalWrapper: "report-modal-wrapper",
   reportModalButton: "report-modal__button",
   addToDeskModalWrapper: "add-to-desk-modal-wrapper",
-  addToDeskModal: "add-to-desk-modal"
+  addToDeskModal: "add-to-desk-modal",
+  showMoreButton: "pagination__button",
+  noResults: "pagination__message",
+  search: "search",
+  deskNumber: "desk-number"
 }
 
 export const HTMLText = {
@@ -37,7 +41,8 @@ export const HTMLText = {
     delete: "Удалить с доски",
     report: "Пожаловаться"
   },
-  showMoreBtn: "показать еще"
+  showMoreBtn: "показать еще",
+  deskNumber: "Доска "
 }
 
 export const localStorageNames = {

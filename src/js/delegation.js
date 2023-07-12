@@ -1,6 +1,5 @@
 import { changeDesk, addToDesk, deleteCardFromDesk } from "./desks.js";
 import { changeModalVisibility, createCardModal, createAddToDeskModal } from "./modals.js";
-import { data } from "./loadPictures.js";
 import { className, HTMLText } from "./textConstants.js";
 
 export function determineDropdownClick(event, modal) {

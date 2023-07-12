@@ -1,7 +1,8 @@
-import { LIMIT } from "./constants.js";
+import { LIMIT, connectionStr } from "./constants.js";
 import { getName } from "./localStorrage.js";
 import { regEx } from "./regExprs.js";
-import { clearGrid, renderPictures, paginationInner } from "./grid.js";
+import { clearGrid, renderPictures} from "./grid.js";
+import { className, localStorageNames, HTMLText } from "./textConstants.js";
 
 export let data = [];
 let page;
@@ -14,12 +15,12 @@ export async function updateData() {
   from = 0;
   to = LIMIT;
   clearGrid();
-  let currDesk = getName("currDesk");
+  let currDesk = getName(localStorageNames.currDesk);
   if (currDesk) {
-    let deskNumber = document.querySelector('.desk-number');
-    deskNumber.innerHTML = `Доска ${currDesk}`;
-    data = getName(`desk_${currDesk}`);
-    let searchInput = document.getElementById('search');
+    let deskNumber = document.querySelector('.' + className.deskNumber);
+    deskNumber.innerHTML = HTMLText.deskNumber + currDesk;
+    data = getName(localStorageNames.desk + currDesk);
+    let searchInput = document.getElementById(className.search);
     let str = searchInput.value;
     let temp = (str.length >= 2 && !str.match(regEx)) ? data.filter(el => el.description.includes(str)) : data;
     let result = temp.slice(from, to);
@@ -34,7 +35,7 @@ export async function appendData() {
   page++;
   from = to;
   to += LIMIT;
-  let currDesk = getName("currDesk");
+  let currDesk = getName(localStorageNames.currDesk);
   if (!currDesk) {
     await getPictures();
   }
@@ -42,11 +43,11 @@ export async function appendData() {
 }
 
 async function getPictures() {
-  let searchInput = document.getElementById('search');
+  let searchInput = document.getElementById(className.search);
   let str = searchInput.value;
-  let url = new URL("https://64986c8a9543ce0f49e2064d.mockapi.io/picture");
+  let url = new URL(connectionStr);
   if (str.length >= 2 && !str.match(regEx)) {
-    url.searchParams.append("description", str);
+    url.searchParams.append("search", str);
   }
   url.searchParams.append("page", page);
   url.searchParams.append("limit", LIMIT);
