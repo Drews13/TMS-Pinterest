@@ -2,6 +2,9 @@
   display: flex;
   margin-top: 20px;
   padding: 0 15px;
+  @media (max-width: 450px) {
+    padding: 0;
+  }
 
   &__logo {
     cursor: pointer;
@@ -32,6 +35,9 @@
   &__search {
     flex: 1 1 auto;
     margin: 0 25px;
+    @media (max-width: 450px) {
+      margin: 0 5px;
+    }
   }
 
   &__search-item {
@@ -98,9 +104,11 @@
 
   &__dropdown-menu {
     @include modal-primary;
+    color: black;
     right: 1px;
     position: absolute;
     z-index: 2;
+    margin-right: 15px;
 
     @media (max-width: 770px) {
       max-width: 100%;
@@ -113,9 +121,10 @@
     }
 
     @media (max-width: 450px) {
-      max-width: 120px;
+      max-width: 150px;
       max-height: 100%;
       font-size: 15px;
+      margin-top: 5px;
     }
   }
 }
