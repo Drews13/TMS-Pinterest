@@ -107,7 +107,10 @@
 .header__logo-item {
   max-width: 180px;
   height: 100%;
-  transition: 0.5s;
+  transition: transform 0.5s;
+}
+.header__logo-item:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 770px) {
   .header__logo-item {
@@ -126,9 +129,6 @@
     width: 40px;
     height: 40px;
   }
-}
-.header__logo-item:hover {
-  transform: scale(1.05);
 }
 .header__search {
   flex: 1 1 auto;
@@ -173,7 +173,16 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
-  transition: 0.5s;
+  transition: transform 0.5s;
+}
+.header__dropdown-item:hover {
+  transform: scale(1.05);
+  background-color: rgb(189, 8, 28);
+}
+@media (max-width: 590px) {
+  .header__dropdown-item span {
+    display: none;
+  }
 }
 @media (max-width: 770px) {
   .header__dropdown-item {
@@ -194,15 +203,6 @@
   .header__dropdown-item {
     width: 40px;
     height: 40px;
-  }
-}
-.header__dropdown-item:hover {
-  transform: scale(1.05);
-  background-color: rgb(189, 8, 28);
-}
-@media (max-width: 590px) {
-  .header__dropdown-item span {
-    display: none;
   }
 }
 .header__dropdown-menu {
@@ -343,7 +343,7 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
-  transition: 0.5s;
+  transition: transform 0.5s;
 }
 .pagination__button:hover {
   transform: scale(1.05);
@@ -367,7 +367,7 @@
   color: rgb(230, 0, 36);
   cursor: pointer;
   transform: translateY(-3px);
-  transition: all 0.5s;
+  transition: transform 0.5s;
 }
 
 .report-modal-wrapper, .add-to-desk-modal-wrapper, .card-modal-wrapper {
