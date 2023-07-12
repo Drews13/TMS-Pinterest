@@ -1,6 +1,6 @@
 export function getName(name) {
   if (!localStorage.getItem(name)) {
-    name === "currDesk" ? setName(name, {}) : setName(name, []);
+    name === "currDesk" ? setName(name, null) : setName(name, []);
   }
   return JSON.parse(localStorage.getItem(name));
 }

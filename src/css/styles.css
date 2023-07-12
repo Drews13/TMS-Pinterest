@@ -156,7 +156,6 @@
   max-width: 1370px;
   margin: 30px auto;
   margin-bottom: 50px;
-  padding: 0 15px;
 }
 
 .card {
@@ -222,13 +221,13 @@
   display: flex;
 }
 
-.button-container {
+.pagination {
   margin: auto;
   margin-bottom: 30px;
   width: 50%;
 }
-
-.grid-button {
+.pagination__button {
+  display: none;
   font-family: "Commisioner";
   font-weight: 500;
   padding: 10px;
@@ -242,16 +241,21 @@
   cursor: pointer;
   transition: 0.5s;
 }
-
-.grid-button:hover {
+.pagination__button:hover {
   transform: scale(1.05);
   background-color: rgb(189, 8, 28);
 }
-
-.grid__message {
+.pagination__message {
+  display: none;
   font-family: "Commisioner";
   font-weight: 600;
   font-size: 24px;
+  text-align: center;
+}
+
+.desk-number {
+  font-family: "Commisioner";
+  margin-top: 20px;
   text-align: center;
 }
 
