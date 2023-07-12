@@ -2,8 +2,9 @@ import { changeModalVisibility, closeReportModal, closeDropdown, closeModal } fr
 import { determineAddToDeskClick, determineDropdownClick } from "./delegation.js";
 import { className } from "./textConstants.js";
 import { appendData, updateData} from "./loadPictures.js";
-import { debounce } from "./debounce.js";
+import { debounce } from "./utils.js";
 import { reloadPage } from "./index.js";
+import { searchDebounceTime } from "./constants.js";
 
 export default function addHandlers() {
   let dropdown = document.querySelector('.' + className.headerDropdownMenu);
@@ -22,13 +23,13 @@ export default function addHandlers() {
   let addToDesk = document.querySelector('.' + className.addToDeskModal);
   addToDesk.onclick = event => determineAddToDeskClick(event, addToDeskWrapper);
 
-  let searchInput = document.getElementById("search");
-  let debouncedSearchCards = debounce(updateData);
+  let searchInput = document.getElementById(className.search);
+  let debouncedSearchCards = debounce(updateData, searchDebounceTime);
   searchInput.addEventListener("input", debouncedSearchCards);
 
-  let logo = document.querySelector(".header__logo");
+  let logo = document.querySelector('.' + className.headerLogo);
   logo.onclick = () => reloadPage();
 
-  let showMoreBtn = document.querySelector(".pagination__button");
+  let showMoreBtn = document.querySelector('.' + className.showMoreButton);
   showMoreBtn.onclick = () => appendData();
 }
