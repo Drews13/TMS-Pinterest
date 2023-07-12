@@ -1,8 +1,9 @@
-import { LIMIT, connectionStr } from "./constants.js";
+import { LIMIT, connectionStr, hidePreloaderTime } from "./constants.js";
 import { getName } from "./localStorrage.js";
 import { regEx } from "./regExprs.js";
 import { clearGrid, renderPictures} from "./grid.js";
 import { className, localStorageNames, HTMLText } from "./textConstants.js";
+import { hidePreloader, showPreloader } from "./utils.js";
 
 export let data = [];
 let page;
@@ -10,6 +11,7 @@ let from;
 let to;
 
 export async function updateData() {
+  showPreloader();
   data = [];
   page = 1;
   from = 0;
@@ -29,9 +31,11 @@ export async function updateData() {
     await getPictures();
     renderPictures(data, page);
   }
+  hidePreloader(hidePreloaderTime);
 }
 
 export async function appendData() {
+  showPreloader();
   page++;
   from = to;
   to += LIMIT;
@@ -40,6 +44,7 @@ export async function appendData() {
     await getPictures();
   }
   renderPictures(data.slice(from, to), page);
+  hidePreloader(hidePreloaderTime);
 }
 
 async function getPictures() {

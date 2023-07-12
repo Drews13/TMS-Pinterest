@@ -1,5 +1,6 @@
 export const className = {
   appWrapper: "wrapper",
+  preloaderWrapper: "preloader-wrapper",
   headerLogo: "header__logo",
   headerDropdownMenu: "header__dropdown-menu",
   headerDropdownButton: "header__dropdown-item",
