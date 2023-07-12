@@ -1,0 +1,119 @@
+.modal-click-item {
+  &:hover{
+    color: $primary;
+    cursor: pointer;
+    transform:  translateY(-3px);
+    transition: transform 0.5s; 
+  }
+}
+
+.report-modal-wrapper, .add-to-desk-modal-wrapper, .card-modal-wrapper {
+  @include modal-wrapper;
+}
+
+.card-modal {
+  @include modal-primary;
+  position: absolute;
+  min-width: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__pic {
+    width: 100%;
+  }
+
+  &__info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: black
+  }
+
+  &__desc {
+    padding-bottom: 10px;
+    border-bottom: 2px solid $grey;
+    line-height: 20px;
+  }
+
+  &__author {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 1136px) {
+    min-width: 600px;
+  }
+
+  @media (max-width: 650px) {
+    min-width: calc(100% - 60px);
+  }
+}
+
+.report-modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include modal-primary;
+  max-width: 350px;
+  width: 100%;
+  position: absolute;
+  color: black;
+
+  @media (max-width: 590px) {
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  &__button {
+    margin-top: 20px;
+    padding: 5px;
+    width: 90px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: $primary;
+    color: white;
+    &:hover {  
+      background-color: $primary-hover
+    }
+        
+    &:active {
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
+
+.add-to-desk-modal {
+  @include modal-primary;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+  width: 100%;
+}

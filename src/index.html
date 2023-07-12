@@ -1,10 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinterest</title>
-</head>
-<body>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      type="image/x-icon"
+      href="./public/img/Pinterest_Icon.svg"
+      rel="shortcut icon"
+    />
+    <title>Pinterest</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="preloader-wrapper">
+        <span class="preloader"></span>
+      </div>
+      <header class="header">
+        <div class="header__logo">
+          <picture>
+            <source
+              media="(max-width: 590px)"
+              srcset="./public/img/Pinterest_Icon.svg"
+            />
+            <img
+              src="./public/img/Pinterest_Logo.svg"
+              alt="Pinterest"
+              class="header__logo-item"
+            />
+          </picture>
+        </div>
+        <div class="header__search">
+          <input
+            type="text"
+            placeholder="поиск..."
+            class="header__search-item"
+            id="search"
+          />
+        </div>
+        <div class="header__dropdown">
+          <button class="header__dropdown-item">
+            <span>Выбрать доску</span>
+            &#9660
+          </button>
+          <div class="header__dropdown-menu" hidden>
+            <div class="modal-text">Выберите доску:</div>
+            <div class="modal-click-item">Доска 1</div>
+            <div class="modal-click-item">Доска 2</div>
+            <div class="modal-click-item">Доска 3</div>
+         </div>
+        </div>
+      </header>
+      <h1 class="desk-number"></h1>
+      <section class="grid">
+      </section>
+      <div class="report-modal-wrapper" hidden>
+        <div class="report-modal">
+          <input type="checkbox" class="report-modal__checkbox">  Насилие<br>
+          <input type="checkbox" class="report-modal__checkbox">  Расовая дискриминация<br>
+          <input type="checkbox" class="report-modal__checkbox">  Контент для взрослых<br>
+          <input type="checkbox" class="report-modal__checkbox">  Жестокое обращение с животными<br>
+          <input type="checkbox" class="report-modal__checkbox">  Дезинформация<br>
+          <input type="checkbox" class="report-modal__checkbox">  Мошенничество<br>
+          <input type="checkbox" class="report-modal__checkbox">  Контрафакция<br>
+          <button type="button" class="report-modal__button">назад</button>
+          <button type="button" class="report-modal__button">оптравить</button>  
+        </div>
+      </div>
+      <div class="add-to-desk-modal-wrapper" hidden>
+        <div class="add-to-desk-modal">
+          <div>Добавить на доску</div>
+          <div class="modal-click-item">Доска 1</div>
+          <div class="modal-click-item">Доска 2</div>
+          <div class="modal-click-item">Доска 3</div>
+        </div>
+      </div>
+      <div class="pagination">
+        <button class="pagination__button">показать еще</button>
+        <p class="pagination__message">ничего не найдено</p>
+      </div>
+   </div>
+    <script type="module" src="./js/index.js"></script>
+  </body>
 </html>

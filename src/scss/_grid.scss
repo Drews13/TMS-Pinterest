@@ -1,0 +1,121 @@
+.grid {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  max-width: 1370px;
+  margin: 30px auto;
+  margin-bottom: 50px;
+
+  @media (max-width: 420px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  @media (max-width: 320px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  border: 2px solid $grey;
+  border-radius: 15px;
+  overflow: hidden;
+  
+  &__pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;	
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+  }
+  
+  &__description {
+    text-align: center;
+    padding: 20px; 
+  }
+
+  &__text { 
+    font-family: "Commisioner";
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-family: "Commisioner";
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__actions {
+    @include modal-primary;
+    background-color: $semi-transparent;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &:hover .card__actions {
+    display: flex;
+  }
+
+}
+
+.pagination {
+  margin: auto;
+  margin-bottom: 30px;
+  width: 50%;
+
+  &__button {
+    display: none;
+    font-family: "Commisioner";
+    font-weight: 500;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: $primary;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $primary-hover;
+    }
+  }
+
+  &__message {
+    display: none;
+    font-family: "Commisioner";
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.desk-number {
+  font-family: "Commisioner";
+  margin-top: 20px;
+  text-align: center;
+}
